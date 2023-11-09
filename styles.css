@@ -1,0 +1,82 @@
+/* Add any resets or general styles here */
+
+/* Ensure your slideshow container is positioned relatively */
+#slideshow {
+  position: relative;
+  width: 100%; /* Set to the desired width */
+  height: 1000px; /* Set to the desired height */
+  overflow: hidden;
+
+  /* Define the animated gradient background */
+  background: linear-gradient(90deg, #632ca6, #ff0078, #14d071, #632ca6, #ff0078, #14d071);
+  background-size: 200% 200%; /* Makes the gradient twice as wide as the container */
+  animation: slideGradient 30s linear infinite; /* Adjust time for animation speed */
+}
+
+/* Styles for the slideshow images */
+#slideshowImage {
+   width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* Initially hide the image */
+}
+
+/* Ken Burns effect */
+@keyframes kenBurnsEffect {
+  0% { transform: scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+
+.ken-burns-effect {
+  animation: kenBurnsEffect 10s ease-in-out forwards;
+}
+
+#startButton {
+
+  position: fixed; /* or absolute, depending on the desired context */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Gradient background */
+  background: linear-gradient(to right, #ffaa00, #ffdb7d);
+
+  /* Rounded corners */
+  border-radius: 20px; /* Adjust this value for more or less rounded corners */
+
+  /* Additional styles for better appearance */
+  border: none; /* Remove default border */
+  color: #fff; /* Text color - choose what fits best on your gradient */
+  font-weight: bold; /* Optional: makes the text bold */
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2); /* Optional: adds a subtle text shadow */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: adds a subtle box shadow for depth */
+  cursor: pointer; /* Changes the mouse cursor on hover */
+  padding: 15px 30px; /* Adjust padding as needed */
+  font-size: 2em; /* Adjust font size as needed */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Style for the button on hover - slightly darker gradient */
+#startButton:hover {
+  background: linear-gradient(to right, #e69500, #ffc94d);
+}
+
+/* Styles for the logo container */
+#logoContainer {
+  position: fixed; /* Fixed position will keep it in the same place regardless of scrolling */
+  bottom: 20px; /* 20px up from the bottom of the viewport */
+  right: 20px; /* 20px from the right of the viewport */
+  z-index: 1000; /* Ensures that the logo stays on top of other elements */
+}
+
+/* Styles for the logo itself */
+#logo {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+  opacity: 0.9;
+  margin: 20px;
+}
+
+
