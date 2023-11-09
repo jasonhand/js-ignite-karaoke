@@ -1,17 +1,33 @@
-/* Add any resets or general styles here */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling if content is larger than the viewport */
+  width: 100%; /* Ensure full width */
+  height: 100%; /* Ensure full height */
+}
 
-/* Ensure your slideshow container is positioned relatively */
+@keyframes slideGradient {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 #slideshow {
   position: relative;
-  width: 100%; /* Set to the desired width */
-  height: 1000px; /* Set to the desired height */
-  overflow: hidden;
+  width: 100%; /* Full width of the container */
+  height: 1000px; /* Set the height you want for your slideshow */
 
   /* Define the animated gradient background */
-  background: linear-gradient(90deg, #632ca6, #ff0078, #14d071, #632ca6, #ff0078, #14d071);
+  background: linear-gradient(45deg, #632ca6, #ff0078, #14d071, #632ca6, #ff0078, #14d071);
   background-size: 200% 200%; /* Makes the gradient twice as wide as the container */
-  animation: slideGradient 30s linear infinite; /* Adjust time for animation speed */
+
+  /* Apply the animation */
+  animation: slideGradient 30s linear infinite;
 }
+
 
 /* Styles for the slideshow images */
 #slideshowImage {
@@ -69,6 +85,8 @@
   bottom: 20px; /* 20px up from the bottom of the viewport */
   right: 20px; /* 20px from the right of the viewport */
   z-index: 1000; /* Ensures that the logo stays on top of other elements */
+  margin: 20px;
+  margin-right: 30px;
 }
 
 /* Styles for the logo itself */
@@ -76,7 +94,13 @@
   width: 100px; /* Adjust as needed */
   height: auto;
   opacity: 0.9;
-  margin: 20px;
 }
 
-
+.image-overlay {
+  position: absolute;
+  bottom: 20%; /* Position from the bottom of the slideshow container */
+  right: 15%; /* Position from the left of the slideshow container */
+  color: #fff; /* Text color */
+  font-size: 2em; /* Text size */
+  z-index: 10; /* Ensure the text is above the images */
+}
