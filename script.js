@@ -5,8 +5,7 @@ let imagesDisplayed = 0; // Counter for the number of images displayed
 const maxImagesToShow = 6; // The maximum number of images to show before stopping
 const startButton = document.getElementById('startButton');
 const slideshowImage = document.getElementById('slideshowImage');
-// Add this line after you get your other elements by ID
-const imageCounter = document.getElementById('imageCounter');
+const imageCounter = document.getElementById('imageCounter'); // Add this line after you get your other elements by ID
 
 function preloadImages() {
   fetch('images.json')
@@ -21,56 +20,44 @@ function preloadImages() {
     });
 }
 
-function startSlideshow() {
-    if (images.length === 0) {
-      console.log('No images to display.');
-      return;
-    }
-    imagesDisplayed = 0; // Reset the counter when the slideshow starts
-    setNextImage();
-    slideshowInterval = setInterval(setNextImage, 10000);
-    startButton.style.display = 'none';
+function setNextImage() {
+  if (imagesDisplayed >= maxImagesToShow) {
+    stopSlideshow();
+    return; // Stop showing more images
+  }
+  
+  if (images.length === 0) {
+    console.log('No more unique images to display.');
+    stopSlideshow();
+    return;
   }
 
-  function setNextImage() {
-    if (imagesDisplayed >= maxImagesToShow) {
-      stopSlideshow();
-      return; // Stop showing more images
-    }
-    
-    if (images.length === 0) {
-      console.log('No more unique images to display.');
-      stopSlideshow();
-      return;
-    }
+  // Generate a random index based on the remaining length of the images array
+  currentIndex = Math.floor(Math.random() * images.length);
   
-    // Generate a random index based on the remaining length of the images array
-    currentIndex = Math.floor(Math.random() * images.length);
-    
-    // Retrieve the image at the random index and remove it from the array
-    const nextImage = images.splice(currentIndex, 1)[0].replace(/&quot;/g, '').replace(/"/g, "");
-    
-    // Set the image source
-    slideshowImage.style.backgroundImage = 'url(' + nextImage + ')';
-    
-    // Apply the Ken Burns effect by adding the class to the element
-    slideshowImage.classList.remove('ken-burns-effect'); // Remove the class if it's already there
-    void slideshowImage.offsetWidth; // Trigger a reflow in between class changes
-    slideshowImage.classList.add('ken-burns-effect'); // Re-add the class to restart the animation
-    
-    // Update the overlay text with the current image count
-    imageCounter.textContent = `${imagesDisplayed + 1} of ${maxImagesToShow}`;
-    
-    imagesDisplayed++; // Increment the counter
-  }
+  // Retrieve the image at the random index and remove it from the array
+  const nextImage = images.splice(currentIndex, 1)[0].replace(/&quot;/g, '').replace(/"/g, "");
   
+  // Set the image source
+  slideshowImage.style.backgroundImage = 'url(' + nextImage + ')';
   
+  // Apply the Ken Burns effect by adding the class to the element
+  slideshowImage.classList.remove('ken-burns-effect');
+  void slideshowImage.offsetWidth;
+  slideshowImage.classList.add('ken-burns-effect');
+  
+  // Update the overlay text with the current image count
+  imageCounter.textContent = `${imagesDisplayed + 1} of ${maxImagesToShow}`;
+  
+  imagesDisplayed++; // Increment the counter
+}
 
 function startSlideshow() {
   if (images.length === 0) {
     console.log('No images to display.');
     return;
   }
+  imagesDisplayed = 0; // Reset the counter when the slideshow starts
   setNextImage();
   slideshowInterval = setInterval(setNextImage, 10000);
   startButton.style.display = 'none';
@@ -103,4 +90,3 @@ document.addEventListener('keydown', (event) => {
 });
 
 window.onload = preloadImages;
-
