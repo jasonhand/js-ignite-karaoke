@@ -97,10 +97,6 @@ html, body {
 }
 
 .image-overlay {
-  position: absolute;
-  bottom: 20%; /* Position from the bottom of the slideshow container */
-  right: 15%; /* Position from the left of the slideshow container */
   color: #fff; /* Text color */
   font-size: 2em; /* Text size */
-  z-index: 10; /* Ensure the text is above the images */
 }
