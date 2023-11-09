@@ -9,6 +9,13 @@ on:
     branches:
       - main
 
+# Hiding secrets in GitHub Secrets
+env:
+  APP_DD_CLIENT_TOKEN: ${{ secrets.APP_DD_CLIENT_TOKEN }}
+  APP_DD_APPLICATION_ID: ${{ secrets.APP_DD_APPLICATION_ID }}
+  APP_DD_SITE: ${{ secrets.APP_DD_SITE }}
+# End Secrets       
+
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
