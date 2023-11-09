@@ -99,4 +99,5 @@ html, body {
 .image-overlay {
   color: #fff; /* Text color */
   font-size: 2em; /* Text size */
+  text-align: center; /* Align text to the right */
 }
