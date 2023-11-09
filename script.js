@@ -38,11 +38,17 @@ function startSlideshow() {
       return; // Stop showing more images
     }
     
-    // Generate a random index based on the length of the images array
+    if (images.length === 0) {
+      console.log('No more unique images to display.');
+      stopSlideshow();
+      return;
+    }
+  
+    // Generate a random index based on the remaining length of the images array
     currentIndex = Math.floor(Math.random() * images.length);
     
-    // Retrieve the image at the random index
-    const nextImage = images[currentIndex].replace(/&quot;/g, '').replace(/"/g, "");
+    // Retrieve the image at the random index and remove it from the array
+    const nextImage = images.splice(currentIndex, 1)[0].replace(/&quot;/g, '').replace(/"/g, "");
     
     // Set the image source
     slideshowImage.style.backgroundImage = 'url(' + nextImage + ')';
@@ -57,6 +63,7 @@ function startSlideshow() {
     
     imagesDisplayed++; // Increment the counter
   }
+  
   
 
 function startSlideshow() {
