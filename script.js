@@ -6,6 +6,8 @@ let maxImagesToShow = 6; // The maximum number of images to show before stopping
 const startButton = document.getElementById('startButton');
 const slideshowImage = document.getElementById('slideshowImage');
 const imageCounter = document.getElementById('imageCounter'); // Add this line after you get your other elements by ID
+const imageSourceDropdown = document.getElementById('imageSourceDropdown');
+
 
 // Get the dropdown element
 let imageCountDropdown = document.getElementById('imageCountDropdown');
@@ -15,18 +17,18 @@ imageCountDropdown.addEventListener('change', function() {
   // Update the maxImagesToShow with the selected value from the dropdown
   maxImagesToShow = parseInt(this.value, 10);
 
-  // Optionally, you could also reset and restart the slideshow with the new limit
-  // if the slideshow is currently active.
-  if (slideshowInterval) {
-    stopSlideshow();
-    startSlideshow();
-  }
-});
+  // Do not start the slideshow here. Just update the maxImagesToShow variable.
+  // The slideshow should only start when the start button is clicked.
+});;
 
+//new
 function preloadImages() {
-  fetch('images.json')
+  let jsonFile = imageSourceDropdown.value === 'datadog' ? 'datadog_images.json' : 'images.json';
+
+  fetch(jsonFile)
     .then(response => response.json())
     .then(data => {
+      images.length = 0; // Clear existing images
       images.push(...data);
       startButton.disabled = false;
     })
@@ -35,6 +37,17 @@ function preloadImages() {
       startButton.disabled = true;
     });
 }
+
+imageSourceDropdown.addEventListener('change', function() {
+  preloadImages(); // Call this function to load images when the dropdown selection changes
+});
+
+//end new
+
+
+
+// Event listener for the new dropdown
+imageSourceDropdown.addEventListener('change', preloadImages);
 
 function setNextImage() {
   if (imagesDisplayed >= maxImagesToShow) {
@@ -73,8 +86,10 @@ function startSlideshow() {
     console.log('No images to display.');
     return;
   }
-  // Hide the dropdown when the slideshow starts
+
+  // Hide the dropdowns when the slideshow starts
   imageCountDropdown.style.display = 'none';
+  imageSourceDropdown.style.display = 'none';
 
   imagesDisplayed = 0; // Reset the counter when the slideshow starts
   setNextImage();
@@ -88,14 +103,15 @@ function stopSlideshow() {
   slideshowImage.classList.remove('ken-burns-effect');
   startButton.style.display = 'block';
 
-  // Check if the max images have been displayed
+  // Show the dropdowns again
+  imageCountDropdown.style.display = 'block';
+  imageSourceDropdown.style.display = 'block';
+
   if (imagesDisplayed >= maxImagesToShow) {
-    // Wait for a short period before refreshing to allow the user to see the last image
     setTimeout(function() {
       location.reload();
     }, 2000); // Wait for 2 seconds
   } else {
-    // Reset the counter if the slideshow was stopped manually before the end
     imagesDisplayed = 0;
   }
 }

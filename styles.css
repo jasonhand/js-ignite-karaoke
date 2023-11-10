@@ -169,4 +169,26 @@ body {
     }
 }
 
-@media
+/* @media */
+
+#imageSourceDropdown {
+    /* Similar styles as your #imageCountDropdown */
+    background: linear-gradient(to right, #ffaa00, #ffdb7d);
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: 20px; /* Space below the other dropdown/button */
+    width: auto;
+    display: block;
+  }
+  
