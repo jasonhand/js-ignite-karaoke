@@ -143,16 +143,21 @@ function displayImageUrls() {
     img.classList.add('thumbnail'); // Add a class for styling
     listItem.appendChild(img);
 
-    const text = document.createElement('span');
-    text.textContent = url;
-    listItem.appendChild(text);
+    const link = document.createElement('a');
+    link.href = url;
+    link.textContent = url;
+    link.target = '_blank'; // Open in a new tab
+    link.style.color = 'inherit'; // Optional: to inherit text color from parent
+    link.style.textDecoration = 'none'; // Optional: to remove underline from links
 
+    listItem.appendChild(link);
     listElement.appendChild(listItem);
   });
 
   // Clear the displayedImages array to be ready for the next slideshow
   displayedImages.length = 0;
 }
+
 
 
 startButton.addEventListener('click', startSlideshow);
