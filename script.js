@@ -2,10 +2,26 @@ const images = [];
 let currentIndex = 0;
 let slideshowInterval = null;
 let imagesDisplayed = 0; // Counter for the number of images displayed
-const maxImagesToShow = 6; // The maximum number of images to show before stopping
+let maxImagesToShow = 6; // The maximum number of images to show before stopping
 const startButton = document.getElementById('startButton');
 const slideshowImage = document.getElementById('slideshowImage');
 const imageCounter = document.getElementById('imageCounter'); // Add this line after you get your other elements by ID
+
+// Get the dropdown element
+let imageCountDropdown = document.getElementById('imageCountDropdown');
+
+// Event listener for the dropdown
+imageCountDropdown.addEventListener('change', function() {
+  // Update the maxImagesToShow with the selected value from the dropdown
+  maxImagesToShow = parseInt(this.value, 10);
+
+  // Optionally, you could also reset and restart the slideshow with the new limit
+  // if the slideshow is currently active.
+  if (slideshowInterval) {
+    stopSlideshow();
+    startSlideshow();
+  }
+});
 
 function preloadImages() {
   fetch('images.json')
@@ -57,6 +73,9 @@ function startSlideshow() {
     console.log('No images to display.');
     return;
   }
+  // Hide the dropdown when the slideshow starts
+  imageCountDropdown.style.display = 'none';
+
   imagesDisplayed = 0; // Reset the counter when the slideshow starts
   setNextImage();
   slideshowInterval = setInterval(setNextImage, 10000);
