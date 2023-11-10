@@ -98,12 +98,13 @@ body {
 
 #logoContainer {
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     right: 20px;
     z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: flex-end; /* Aligns children (logo and text) to the right */
+    /* margin-bottom: 50px; */
   }
   
   #logo {
@@ -118,6 +119,7 @@ body {
     color: white;
     text-align: right; /* Aligns text to the right */
     font-size: 2em;
+    margin: 5px;
   }
   
 
@@ -255,6 +257,37 @@ body {
     /* Additional styling for the URL text if needed */
     word-break: break-all; /* To prevent overflow */
   }
+  
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(244, 237, 237, 0.7); /* Adjust the alpha value (0.7) for transparency */
+    /*color: white;*/
+    text-align: center;
+    padding: 10px 0;
+    color: rgba(255, 255, 255, 1); /* Very light text with low opacity */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    opacity: 10%;
+  }
+  
+  .footer-link {
+    margin: 0 15px;
+    color: inherit; /* Inherits the light color from the footer */
+    text-decoration: none; /* Removes underline */
+    font-size: 2em;
+    transition: color 0.2s ease; /* Smooth transition for color change */
+  }
+  
+  .footer-link:hover {
+    color: #fff; /* Brighter white color on hover */
+  }
+
+  footer:hover {
+    color: rgb(252, 252, 252); /* More visible text color on hover */
+  }
+
   
   
   
