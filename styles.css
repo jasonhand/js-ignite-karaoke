@@ -33,9 +33,8 @@ body {
 #slideshow {
     position: relative;
     width: 100%;
-   /* height: 1000px; */
     height: 100vh; /* Full viewport height */
-    background: linear-gradient(45deg, #632ca6, #ff0078, #14d071, #632ca6, #ff0078, #14d071);
+    background: linear-gradient(145deg, #632ca6, #ff0078, #14d071, #632ca6, #ff0078, #14d071);
     background-size: 300% 300%;
    /* background-size: cover; /* Ensure background covers the entire element */ 
     animation: slideGradient 30s linear infinite;
