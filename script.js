@@ -7,6 +7,8 @@ const startButton = document.getElementById('startButton');
 const slideshowImage = document.getElementById('slideshowImage');
 const imageCounter = document.getElementById('imageCounter'); // Add this line after you get your other elements by ID
 const imageSourceDropdown = document.getElementById('imageSourceDropdown');
+let displayedImages = []; // Array to keep track of displayed images
+
 
 
 // Get the dropdown element
@@ -66,6 +68,9 @@ function setNextImage() {
   
   // Retrieve the image at the random index and remove it from the array
   const nextImage = images.splice(currentIndex, 1)[0].replace(/&quot;/g, '').replace(/"/g, "");
+
+  // Add the displayed image to the displayedImages array
+  displayedImages.push(nextImage);
   
   // Set the image source
   slideshowImage.style.backgroundImage = 'url(' + nextImage + ')';
@@ -87,9 +92,11 @@ function startSlideshow() {
     return;
   }
 
-  // Hide the dropdowns when the slideshow starts
+  // Hide the dropdowns and URL list when the slideshow starts
   imageCountDropdown.style.display = 'none';
   imageSourceDropdown.style.display = 'none';
+  document.getElementById('imageUrlsList').style.display = 'none'; // Hide the URL list
+  document.getElementById('imageUrlsList').innerHTML = ''; // Optionally, clear the list
 
   imagesDisplayed = 0; // Reset the counter when the slideshow starts
   setNextImage();
@@ -102,19 +109,51 @@ function stopSlideshow() {
   slideshowImage.style.backgroundImage = '';
   slideshowImage.classList.remove('ken-burns-effect');
   startButton.style.display = 'block';
-
-  // Show the dropdowns again
-  imageCountDropdown.style.display = 'block';
   imageSourceDropdown.style.display = 'block';
+  imageCountDropdown.style.display = 'block';
 
-  if (imagesDisplayed >= maxImagesToShow) {
-    setTimeout(function() {
-      location.reload();
-    }, 2000); // Wait for 2 seconds
+  if (imagesDisplayed >= maxImagesToShow && maxImagesToShow !== -1) {
+    displayImageUrls(); // Function to display image URLs
+    // Remove or comment out the setTimeout function that refreshes the page.
+    // setTimeout(function() {
+    //   location.reload();
+    // }, 2000); // No longer needed
   } else {
     imagesDisplayed = 0;
+    document.getElementById('imageUrlsList').style.display = 'none'; // Hide the list when restarting
+  }
+  if (imagesDisplayed < maxImagesToShow || maxImagesToShow === -1) {
+    displayedImages.length = 0;
   }
 }
+
+
+function displayImageUrls() {
+  const listElement = document.getElementById('imageUrlsList');
+  listElement.innerHTML = ''; // Clear previous content
+  listElement.style.display = 'block'; // Show the list element
+
+  displayedImages.forEach(url => {
+    const listItem = document.createElement('div');
+    listItem.classList.add('url-item'); // Add a class for styling
+
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = 'Thumbnail';
+    img.classList.add('thumbnail'); // Add a class for styling
+    listItem.appendChild(img);
+
+    const text = document.createElement('span');
+    text.textContent = url;
+    listItem.appendChild(text);
+
+    listElement.appendChild(listItem);
+  });
+
+  // Clear the displayedImages array to be ready for the next slideshow
+  displayedImages.length = 0;
+}
+
 
 startButton.addEventListener('click', startSlideshow);
 

@@ -1,3 +1,14 @@
+body {
+    font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -99,7 +110,7 @@ body {
     width: 100px; /* Adjust as needed */
     height: auto;
     opacity: 0.9;
-    /* Ensure no additional alignment styles are conflicting here */
+    margin-right: 30px;
   }
   
   #logoText {
@@ -203,4 +214,47 @@ body {
     width: auto;
     display: block;
   }
+
+  #imageUrlsList {
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left; /* Left align can be easier to read for lists */
+    font-size: 1em; /* Adjust font size for readability */
+    line-height: 1.5; /* Increase line height for better spacing */
+    max-height: 300px; /* Set a max height */
+    overflow-y: auto; /* Add a scrollbar if the content is too long */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: add a subtle shadow for depth */
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Adjust padding as necessary */
+  }
+  
+  #imageUrlsList div {
+    margin-bottom: 10px; /* Space out each URL */
+    padding: 5px; /* Padding for each URL */
+    border-bottom: 1px solid rgba(255,255,255,0.3); /* Optional: add a divider between URLs */
+  }
+  
+  #imageUrlsList .url-item {
+    display: flex;
+    align-items: center; /* Align thumbnail and text vertically */
+    margin-bottom: 10px; /* Space out each URL */
+  }
+  
+  #imageUrlsList .thumbnail {
+    width: 50px; /* Thumbnail size */
+    height: 50px; /* Thumbnail size */
+    object-fit: cover; /* Ensure the image covers the area */
+    margin-right: 10px; /* Space between thumbnail and text */
+    border-radius: 5px; /* Optional: rounded corners for thumbnails */
+  }
+  
+  #imageUrlsList span {
+    /* Additional styling for the URL text if needed */
+    word-break: break-all; /* To prevent overflow */
+  }
+  
+  
   
