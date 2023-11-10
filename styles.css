@@ -4,66 +4,68 @@ html, body {
     overflow: hidden;
     width: 100%;
     height: 100%;
-  }
-  
-  body {
+}
+
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  
-  @keyframes slideGradient {
+}
+
+@keyframes slideGradient {
     0% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-  }
-  
-  #slideshow {
+}
+
+#slideshow {
     position: relative;
     width: 100%;
-    height: 1000px;
+   /* height: 1000px; */
+    height: 100vh; /* Full viewport height */
     background: linear-gradient(45deg, #632ca6, #ff0078, #14d071, #632ca6, #ff0078, #14d071);
     background-size: 300% 300%;
+   /* background-size: cover; /* Ensure background covers the entire element */ 
     animation: slideGradient 30s linear infinite;
-  }
-  
-  #slideshowImage {
+}
+
+
+#slideshowImage {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center 30%; /* Start the initial position from higher up */
+    background-position: center 30%;
     opacity: 0;
     position: relative;
-  }
-  
-  @keyframes kenBurnsEffect {
+}
+
+@keyframes kenBurnsEffect {
     0% {
-      transform: scale(1.5);
-      opacity: 0;
-      background-position: center;
+        transform: scale(1.5);
+        opacity: 0;
+        background-position: center;
     }
     10% {
-      opacity: 1;
+        opacity: 1;
     }
     90% {
-      transform: scale(1.2);
-      opacity: 1;
-      background-position: center;
+        transform: scale(1.2);
+        opacity: 1;
+        background-position: center;
     }
     100% {
-      transform: scale(1);
-      opacity: 0;
-      background-position: center;
+        transform: scale(1);
+        opacity: 0;
+        background-position: center;
     }
-  }
-  
-  
-  .ken-burns-effect {
+}
+
+.ken-burns-effect {
     animation: kenBurnsEffect 10s ease-in-out forwards;
-  }
-  
-  #startButton {
+}
+
+#startButton {
     position: relative;
     background: linear-gradient(to right, #ffaa00, #ffdb7d);
     border-radius: 20px;
@@ -76,34 +78,33 @@ html, body {
     padding: 15px 30px;
     font-size: 2em;
     transition: background-color 0.3s ease;
-    z-index: 2; /* Ensure it's above the dropdown */
-  }
-  
-  #startButton:hover {
+    z-index: 2;
+}
+
+#startButton:hover {
     background: linear-gradient(to right, #e69500, #ffc94d);
-  }
-  
-  #logoContainer {
+}
+
+#logoContainer {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    margin-right: 10px;
-  }
-  
-  #logo {
+}
+
+#logo {
     width: 100px;
     height: auto;
     opacity: 0.9;
-  }
-  
-  .image-overlay {
+}
+
+.image-overlay {
     color: #fff;
     font-size: 2em;
     text-align: center;
-  }
-  
-  #imageCountDropdown {
+}
+
+#imageCountDropdown {
     background: linear-gradient(to right, #ffaa00, #ffdb7d);
     border-radius: 20px;
     border: none;
@@ -118,23 +119,54 @@ html, body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    margin-top: 20px; /* Space below the button */
-    width: auto; /* Let it size according to content */
-    display: block; /* Needed to allow margin to center the element */
-  }
-  
-  #imageCountDropdown:focus {
+    margin-top: 20px;
+    width: auto;
+    display: block;
+}
+
+#imageCountDropdown:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.5);
-  }
-  
-  
-  #inputs {
+}
+
+#inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 50px;
-    /* If you want the 'inputs' div to take up the entire viewport height */
-    /*min-height: 100vh; */
-  }
+}
+
+@media (max-width: 768px) {
+    #slideshow {
+        height: 600px;
+    }
+
+    #slideshowImage {
+        height: 600px;
+    }
+
+    #logoContainer {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    #logo {
+        width: 50px;
+    }
+
+    #startButton, #imageCountDropdown {
+        padding: 10px 20px;
+        font-size: 1.5em;
+    }
+
+    .image-overlay {
+        font-size: 1.5em;
+    }
+
+    #inputs {
+        margin: 20px;
+    }
+}
+
+@media

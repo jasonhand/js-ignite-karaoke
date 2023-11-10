@@ -1,123 +1,207 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  @keyframes slideGradient {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  #slideshow {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    background: linear-gradient(45deg, #632ca6, #ff0078, #14d071, #632ca6, #ff0078, #14d071);
+    background-size: 300% 300%;
+    animation: slideGradient 30s linear infinite;
+  }
+  
+  #slideshowImage {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center 30%; /* Start the initial position from higher up */
+    opacity: 0;
+    position: relative;
+  }
+  
+  @keyframes kenBurnsEffect {
+    0% {
+      transform: scale(1.5);
+      opacity: 0;
+      background-position: center;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      transform: scale(1.2);
+      opacity: 1;
+      background-position: center;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+      background-position: center;
+    }
+  }
+  
+  
+  .ken-burns-effect {
+    animation: kenBurnsEffect 10s ease-in-out forwards;
+  }
+  
+  #startButton {
+    position: relative;
+    background: linear-gradient(to right, #ffaa00, #ffdb7d);
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 2em;
+    transition: background-color 0.3s ease;
+    z-index: 2; /* Ensure it's above the dropdown */
+  }
+  
+  #startButton:hover {
+    background: linear-gradient(to right, #e69500, #ffc94d);
+  }
+  
+  #logoContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    margin-right: 10px;
+  }
+  
+  #logo {
+    width: 100px;
+    height: auto;
+    opacity: 0.9;
+  }
+  
+  .image-overlay {
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+  }
+  
+  #imageCountDropdown {
+    background: linear-gradient(to right, #ffaa00, #ffdb7d);
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 2em;
+    transition: background-color 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: 20px; /* Space below the button */
+    width: auto; /* Let it size according to content */
+    display: block; /* Needed to allow margin to center the element */
+  }
+  
+  #imageCountDropdown:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.5);
+  }
+  
+  
+  #inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    /* If you want the 'inputs' div to take up the entire viewport height */
+    /*min-height: 100vh; */
+  }
+
+  /* Existing CSS... */
+
+/* Responsive adjustments */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+  #slideshow {
+    height: 600px; /* Smaller height for mobile devices */
+  }
+
+  #slideshowImage {
+    height: 600px; /* Smaller height for mobile devices */
+  }
+
+  #logoContainer {
+    right: 10px; /* Reduce the right margin for mobile devices */
+    bottom: 10px; /* Reduce the bottom margin for mobile devices */
+  }
+
+  #logo {
+    width: 50px; /* Smaller logo size for mobile devices */
+  }
+
+  #startButton, #imageCountDropdown {
+    padding: 10px 20px; /* Smaller padding for smaller screens */
+    font-size: 1.5em; /* Smaller font size for smaller screens */
+  }
+
+  #logo {
+    width: 70px; /* Smaller logo size for mobile devices */
+  }
+
+  .image-overlay {
+    font-size: 1.5em; /* Smaller font size for mobile */
+  }
+
+  #inputs {
+    margin: 20px; /* Smaller margin for smaller screens */
+  }
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+@media (max-width: 480px) { /* Adjustments for very small screens */
+  #startButton, #imageCountDropdown {
+    padding: 8px 15px;
+    font-size: 1.2em;
+  }
 
-@keyframes slideGradient {
-  0% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+  #logoContainer {
+    right: 5px; /* Further reduce the right margin for very small screens */
+    bottom: 5px; /* Further reduce the bottom margin for very small screens */
+  }
 
-#slideshow {
-  position: relative;
-  width: 100%;
-  height: 1000px;
-  background: linear-gradient(45deg, #632ca6, #ff0078, #14d071, #632ca6, #ff0078, #14d071);
-  background-size: 300% 300%;
-  animation: slideGradient 30s linear infinite;
-}
+  #logo {
+    width: 40px; /* Even smaller logo size for very small devices */
+  }
 
-#slideshowImage {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-}
+  .image-overlay {
+    font-size: 1.2em; /* Further reduce font size */
+  }
 
-@keyframes kenBurnsEffect {
-  0% { transform: scale(1); opacity: 0; }
-  10% { opacity: 1; }
-  90% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1.2); opacity: 0; }
-}
+  #slideshowImage {
+    height: 600px; /* Smaller height for mobile devices */
+  }
 
-.ken-burns-effect {
-  animation: kenBurnsEffect 10s ease-in-out forwards;
-}
-
-#startButton {
-  position: relative;
-  background: linear-gradient(to right, #ffaa00, #ffdb7d);
-  border-radius: 20px;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
-  padding: 15px 30px;
-  font-size: 2em;
-  transition: background-color 0.3s ease;
-  z-index: 2; /* Ensure it's above the dropdown */
-}
-
-#startButton:hover {
-  background: linear-gradient(to right, #e69500, #ffc94d);
-}
-
-#logoContainer {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-
-#logo {
-  width: 100px;
-  height: auto;
-  opacity: 0.9;
-}
-
-.image-overlay {
-  color: #fff;
-  font-size: 2em;
-  text-align: center;
-}
-
-#imageCountDropdown {
-  background: linear-gradient(to right, #ffaa00, #ffdb7d);
-  border-radius: 20px;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
-  padding: 15px 30px;
-  font-size: 2em;
-  transition: background-color 0.3s ease;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin-top: 20px; /* Space below the button */
-  width: auto; /* Let it size according to content */
-  display: block; /* Needed to allow margin to center the element */
-}
-
-#imageCountDropdown:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.5);
-}
-
-
-#inputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 50px;
-  /* If you want the 'inputs' div to take up the entire viewport height */
-  /*min-height: 100vh; */
+  #inputs {
+    margin: 15px;
+  }
 }
