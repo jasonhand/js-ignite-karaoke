@@ -90,13 +90,25 @@ body {
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-}
-
-#logo {
-    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligns children (logo and text) to the right */
+  }
+  
+  #logo {
+    width: 100px; /* Adjust as needed */
     height: auto;
     opacity: 0.9;
-}
+    /* Ensure no additional alignment styles are conflicting here */
+  }
+  
+  #logoText {
+    /* Styles for your text */
+    color: white;
+    text-align: right; /* Aligns text to the right */
+    font-size: 2em;
+  }
+  
 
 .image-overlay {
     color: #fff;

@@ -76,7 +76,7 @@ function setNextImage() {
   slideshowImage.classList.add('ken-burns-effect');
   
   // Update the overlay text with the current image count
-  imageCounter.textContent = `${imagesDisplayed + 1} of ${maxImagesToShow}`;
+  imageCounter.textContent = `🎤  ${imagesDisplayed + 1} of ${maxImagesToShow} 🔥`;
   
   imagesDisplayed++; // Increment the counter
 }
