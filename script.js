@@ -81,7 +81,7 @@ function setNextImage() {
   slideshowImage.classList.add('ken-burns-effect');
   
   // Update the overlay text with the current image count
-  imageCounter.textContent = `🎤  ${imagesDisplayed + 1} of ${maxImagesToShow} 🔥`;
+  imageCounter.textContent = `🔥 ${imagesDisplayed + 1} 🎤 ${maxImagesToShow} 🔥`;
   
   imagesDisplayed++; // Increment the counter
 }
@@ -102,6 +102,8 @@ function startSlideshow() {
   setNextImage();
   slideshowInterval = setInterval(setNextImage, 10000);
   startButton.style.display = 'none';
+  // Remove the 'bright-footer' class from the footer when starting the slideshow
+  document.querySelector('footer').classList.remove('bright-footer');
 }
 
 function stopSlideshow() {
@@ -156,6 +158,8 @@ function displayImageUrls() {
 
   // Clear the displayedImages array to be ready for the next slideshow
   displayedImages.length = 0;
+    // Add the 'bright-footer' class to the footer
+    document.querySelector('footer').classList.add('bright-footer');
 }
 
 
