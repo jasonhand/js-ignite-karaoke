@@ -206,7 +206,7 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     cursor: pointer;
     padding: 15px 30px;
-    font-size: 1em;
+    font-size: 2em;
     transition: background-color 0.3s ease;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -221,7 +221,7 @@ body {
     padding: 20px;
     margin-top: 20px;
     text-align: left; /* Left align can be easier to read for lists */
-    font-size: 1em; /* Adjust font size for readability */
+    font-size: 2em; /* Adjust font size for readability */
     line-height: 1.5; /* Increase line height for better spacing */
     max-height: 300px; /* Set a max height */
     overflow-y: auto; /* Add a scrollbar if the content is too long */
@@ -230,6 +230,7 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: add a subtle shadow for depth */
     list-style-type: none; /* Remove default list styling */
     padding-left: 0; /* Adjust padding as necessary */
+    opacity: 20%;
   }
   
   #imageUrlsList div {
@@ -245,8 +246,8 @@ body {
   }
   
   #imageUrlsList .thumbnail {
-    width: 50px; /* Thumbnail size */
-    height: 50px; /* Thumbnail size */
+    width: 100px; /* Thumbnail size */
+    height: 100px; /* Thumbnail size */
     object-fit: cover; /* Ensure the image covers the area */
     margin-right: 10px; /* Space between thumbnail and text */
     border-radius: 5px; /* Optional: rounded corners for thumbnails */
