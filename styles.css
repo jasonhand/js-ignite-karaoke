@@ -220,6 +220,8 @@ body {
     color: white;
     padding: 20px;
     margin-top: 20px;
+    margin-left: 40px; /* Left margin */
+    margin-right: 40px; /* Right margin */
     text-align: left; /* Left align for better readability in lists */
     font-size: 2em; /* Larger font size for visibility */
     line-height: 1.5; /* Increased line height for spacing between lines */
@@ -229,7 +231,6 @@ body {
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     list-style-type: none; /* No bullet points for list items */
-    padding-left: 0; /* Reset left padding */
   }
   
   #imageUrlsList div {
@@ -255,6 +256,7 @@ body {
   #imageUrlsList span {
     word-break: break-all; /* Break words to prevent horizontal overflow */
   }
+  
   
   
   footer {
@@ -297,17 +299,28 @@ body {
   }
   
   .fire-effect {
-    width: 100%; /* Full width of the container */
-    height: 15px; /* Adjust height as needed */
-    background: linear-gradient(90deg, rgb(252, 251, 252) 0%, rgb(255, 128, 0) 10%, rgba(255,255,0,1) 20%, rgba(255,154,0,1) 30%, rgba(255,0,0,1) 40%, rgb(252, 251, 252) 100%);
-    background-size: 200% 100%; /* Adjust background size for the scrolling effect */
-    animation: movingFire 5s linear infinite;
+    width: 200%;
+    height: 25px; /* Adjust height as needed */
     position: fixed;
     top: 0;
     left: 0;
     z-index: 999; /* Ensure it's above other elements */
+  
+    background: 
+      linear-gradient(
+        to bottom,
+        rgba(247, 245, 245, 0.1), 
+        rgba(239, 5, 122, 0.536)
+      ),
+      linear-gradient(
+        90deg, 
+        rgb(252, 251, 252) 0%, 
+        rgb(255, 128, 0) 20%, 
+        rgba(255, 255, 0, 1) 30%, 
+        rgba(255, 154, 0, 1) 40%, 
+        rgba(255, 0, 0, 1) 50%
+      );
+  
+    background-size: 200% 100%;
+    animation: movingFire 5s linear infinite;
   }
-  
-  
-  
-  
