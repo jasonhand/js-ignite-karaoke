@@ -220,43 +220,42 @@ body {
     color: white;
     padding: 20px;
     margin-top: 20px;
-    text-align: left; /* Left align can be easier to read for lists */
-    font-size: 2em; /* Adjust font size for readability */
-    line-height: 1.5; /* Increase line height for better spacing */
-    max-height: 300px; /* Set a max height */
-    overflow-y: auto; /* Add a scrollbar if the content is too long */
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    border-radius: 10px; /* Optional: rounded corners */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: add a subtle shadow for depth */
-    list-style-type: none; /* Remove default list styling */
-    padding-left: 0; /* Adjust padding as necessary */
-    opacity: 20%;
+    text-align: left; /* Left align for better readability in lists */
+    font-size: 2em; /* Larger font size for visibility */
+    line-height: 1.5; /* Increased line height for spacing between lines */
+    max-height: 300px; /* Limit height to prevent excessive length */
+    overflow-y: auto; /* Enable scrollbar if content overflows */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    list-style-type: none; /* No bullet points for list items */
+    padding-left: 0; /* Reset left padding */
   }
   
   #imageUrlsList div {
-    margin-bottom: 10px; /* Space out each URL */
-    padding: 5px; /* Padding for each URL */
-    border-bottom: 1px solid rgba(255,255,255,0.3); /* Optional: add a divider between URLs */
+    margin-bottom: 10px; /* Space between URL entries */
+    padding: 5px; /* Padding around each URL */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Divider line between URLs */
   }
   
   #imageUrlsList .url-item {
     display: flex;
-    align-items: center; /* Align thumbnail and text vertically */
-    margin-bottom: 10px; /* Space out each URL */
+    align-items: center; /* Vertically center items within the flex container */
+    margin-bottom: 10px; /* Space between items */
   }
   
   #imageUrlsList .thumbnail {
-    width: 100px; /* Thumbnail size */
-    height: 100px; /* Thumbnail size */
-    object-fit: cover; /* Ensure the image covers the area */
-    margin-right: 10px; /* Space between thumbnail and text */
-    border-radius: 5px; /* Optional: rounded corners for thumbnails */
+    width: 100px; /* Fixed width for thumbnails */
+    height: 100px; /* Fixed height for thumbnails */
+    object-fit: cover; /* Cover the thumbnail area with the image */
+    margin-right: 10px; /* Space between thumbnail and URL text */
+    border-radius: 5px; /* Rounded corners for thumbnails */
   }
   
   #imageUrlsList span {
-    /* Additional styling for the URL text if needed */
-    word-break: break-all; /* To prevent overflow */
+    word-break: break-all; /* Break words to prevent horizontal overflow */
   }
+  
   
   footer {
     position: fixed;
@@ -288,6 +287,27 @@ body {
     color: rgb(252, 252, 252); /* More visible text color on hover */
   }
 
+  @keyframes movingFire {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .fire-effect {
+    width: 100%; /* Full width of the container */
+    height: 15px; /* Adjust height as needed */
+    background: linear-gradient(90deg, rgb(252, 251, 252) 0%, rgb(255, 128, 0) 10%, rgba(255,255,0,1) 20%, rgba(255,154,0,1) 30%, rgba(255,0,0,1) 40%, rgb(252, 251, 252) 100%);
+    background-size: 200% 100%; /* Adjust background size for the scrolling effect */
+    animation: movingFire 5s linear infinite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999; /* Ensure it's above other elements */
+  }
+  
   
   
   
