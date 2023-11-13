@@ -1,2 +1,4 @@
-# js-ignite-karaoke
-Javascript Ignite Karaoke App
+# Javascript Ignite Karaoke App
+
+Details coming...
+
