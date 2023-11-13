@@ -223,7 +223,7 @@ body {
     margin-left: 40px; /* Left margin */
     margin-right: 40px; /* Right margin */
     text-align: left; /* Left align for better readability in lists */
-    font-size: 2em; /* Larger font size for visibility */
+    font-size: 1em; /* Larger font size for visibility */
     line-height: 1.5; /* Increased line height for spacing between lines */
     max-height: 300px; /* Limit height to prevent excessive length */
     overflow-y: auto; /* Enable scrollbar if content overflows */
