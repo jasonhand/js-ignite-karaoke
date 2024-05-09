@@ -9,8 +9,6 @@ const imageCounter = document.getElementById('imageCounter'); // Add this line a
 const imageSourceDropdown = document.getElementById('imageSourceDropdown');
 let displayedImages = []; // Array to keep track of displayed images
 
-
-
 // Get the dropdown element
 let imageCountDropdown = document.getElementById('imageCountDropdown');
 

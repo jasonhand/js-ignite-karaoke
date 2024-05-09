@@ -1,12 +1,16 @@
 # Javascript Ignite Karaoke App
 
-Simple Javascript slideshow app.
-
-Images URLs are stored in [images.json](images.json) (**Random images**) and [datadog_images.json](images.json)(**Datadog hero images**) files and read in to the app randomly.
-
+Simple Javascript slideshow app used for "Ignite Karaoke".
 
 ![Ignite Karaoke](img/Ignite_Karaoke.png)
 
+## How to Use This Project
+
+1. Fork this repository.
+2. From the root directory, run `python -m http.server 8001` to start a web server on your local machine.
+3. Browse to `http://localhost:8001/` in your browser to view the application.
+
+>NOTE: Python must be installed locally.
 
 ## Options
 
