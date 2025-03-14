@@ -50,6 +50,7 @@ body {
   position: absolute;
   top: 25px; /* Match the flame effect height */
   margin-top: 0; /* Remove any default margin */
+  z-index: 1; /* Add this to give it a specific z-index */
 }
 
 
@@ -151,6 +152,8 @@ body {
     margin-top: 20px;
     width: auto;
     display: block;
+    position: relative;
+    z-index: 10;
 }
 
 #imageCountDropdown:focus {
@@ -164,6 +167,8 @@ body {
     align-items: center;
     justify-content: center;
     margin: 50px;
+    position: relative;
+    z-index: 10;
 }
 
 @media (max-width: 768px) {
@@ -219,6 +224,8 @@ body {
     margin-top: 20px; /* Space below the other dropdown/button */
     width: auto;
     display: block;
+    position: relative;
+    z-index: 10;
   }
 
   #imageUrlsList {
