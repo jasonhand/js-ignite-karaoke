@@ -48,6 +48,8 @@ body {
   background-position: center top; /* Align the image to the top */
   opacity: 0;
   position: absolute;
+  top: 25px; /* Match the flame effect height */
+  margin-top: 0; /* Remove any default margin */
 }
 
 
