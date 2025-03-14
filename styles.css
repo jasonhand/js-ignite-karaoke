@@ -283,12 +283,15 @@ body {
     color: white;
     transition: color 0.3s ease; /* Smooth transition for color change */
     opacity: 10%;
+    z-index: 10; /* Add this to ensure footer is above other elements */
   }
   
   .footer-link {
     margin: 0 15px;
     text-decoration: none; /* Removes underline */
     font-size: 2em;
+    position: relative; /* Add this */
+    z-index: 11; /* Even higher z-index for the actual links */
    /* transition: color 0.2s ease; /* Smooth transition for color change */
   }
   
